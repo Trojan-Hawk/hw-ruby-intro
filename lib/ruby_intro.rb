@@ -15,7 +15,29 @@ def sum arr
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  firstHighest = 0
+  secondHighest = 0
+  if arr.length == 0
+    return firstHighest
+  elsif arr.length == 1
+    return arr[0]
+  else
+    arr.each do |x|
+      # if x is highest
+      if x > firstHighest 
+        # if firstHighest is the second highest
+        if firstHighest > secondHighest
+          secondHighest = firstHighest
+        end
+        # make x the highest
+        firstHighest = x
+      # if x is secondHighest
+      elsif x > secondHighest
+        secondHighest = x
+      end
+    end
+    return firstHighest + secondHighest
+  end
 end
 
 def sum_to_n? arr, n
